@@ -5,7 +5,7 @@ import Body from '../Components/Body'
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='inter'>
         <SideMenue/>
         <Header/>
         <Body/>
