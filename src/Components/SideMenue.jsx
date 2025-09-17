@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useAppContext } from '../Context/Context';
 
 const SideMenue = () => {
 
     const [dropdown,setDropdown] = useState(false);
+    const {setConnectionClick,setuserClick,setSecurityClick}= useAppContext();
 
   return (
     <div className='fixed flex flex-col h-screen w-40 md:w-60 top-0 lg:w-70 left-0 bg-gray-100 items-center'>
