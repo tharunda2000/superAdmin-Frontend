@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAppContext } from '../Context/Context'
+import DatabaseSettings from './DatabaseSettings';
 
 const Body = () => {
 
     const {} = useAppContext();
     
+    
   return (
     
 
-    <div className='relative bg-blue-100 min-w-full h-full noto'>
-      <div className='flex relative bg-white mt-20 mx-30 '>
-          <h1>Database Settings</h1>
-      </div>
+    <div className='flex flex-col relative bg-blue-100 min-w-full h-full noto'>
+      <DatabaseSettings/>
+  
     </div>
   )
 }

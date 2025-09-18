@@ -7,8 +7,9 @@ export const Context = ({children}) => {
     const [connectionClick,setConnectionClick] = useState(true);
     const [userClick,setuserClick] = useState(false);
     const [securityClick,setSecurityClick] = useState(false);
+    const [databaseCollapse,setDatabaseCollapse] = useState(false);
   
-    const values = {connectionClick,setConnectionClick,userClick,setuserClick,securityClick,setSecurityClick};
+    const values = {connectionClick,setConnectionClick,userClick,setuserClick,securityClick,setSecurityClick,databaseCollapse,setDatabaseCollapse};
 
 
     return <appContext.Provider value={values}>
