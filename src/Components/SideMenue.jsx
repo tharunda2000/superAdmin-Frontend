@@ -4,7 +4,25 @@ import { useAppContext } from '../Context/Context';
 const SideMenue = () => {
 
     const [dropdown,setDropdown] = useState(false);
-    const {setConnectionClick,setuserClick,setSecurityClick}= useAppContext();
+    const {connectionClick,setConnectionClick,userClick,setuserClick,securityClick,setSecurityClick}= useAppContext();
+
+    const connectionItem = () =>{
+        setConnectionClick(true);
+        setuserClick(false);
+        setSecurityClick(false); 
+    }
+
+    const userItem = () =>{
+        setConnectionClick(false);
+        setuserClick(true);
+        setSecurityClick(false); 
+    }
+
+    const securityItem = () =>{
+        setConnectionClick(false);
+        setuserClick(false);
+        setSecurityClick(true); 
+    }
 
   return (
     <div className='fixed flex flex-col h-screen w-40 md:w-60 top-0 lg:w-70 left-0 bg-gray-100 items-center noto'>
@@ -24,17 +42,26 @@ const SideMenue = () => {
 
         {dropdown && <div className='flex flex-col text-sm'>
 
-            <div className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'>
+            <div 
+                className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'
+                onClick={connectionItem}
+            >
                 <i class="ri-signal-wifi-error-fill text-xl"></i>
                 <h1 className=''>Connection Settings</h1> 
             </div>
 
-            <div className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'>
+            <div 
+                className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'
+                onClick={userItem}
+            >
                 <i class="ri-shield-user-fill text-xl"></i>
                 <h1 className=''>User Management</h1> 
             </div>
 
-            <div className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'>
+            <div 
+                className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'
+                onClick={securityItem}
+            >
                 <i class="ri-shield-fill text-xl"></i>
                 <h1 className=''>Security Settings</h1> 
             </div>
