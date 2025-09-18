@@ -7,13 +7,13 @@ const DatabaseSettings = () => {
 
   return (
     <div>
-      <div className='flex relative bg-white mt-20 mx-10 lg:mx-70 p-5 border-1 border-blue-500 rounded-t-4xl justify-between text-sm lg:text-xl'>
+      <div className='flex relative bg-white mt-20 mx-10 lg:mx-70 p-5 border-1 border-blue-500 rounded-t-2xl justify-between text-sm lg:text-xl'>
           <div className='flex gap-3'>
             <i class="ri-database-2-fill"></i>
             <h1 >Database Settings</h1>
           </div>
           <i 
-            class="ri-arrow-down-wide-line text-xl font-bold me-5 cursor-pointer"
+            class="ri-arrow-down-wide-line text-xl font-bold me-5 cursor-pointer bg-black px-1 text-white rounded-full hover:bg-blue-800"
             onClick={()=>setDatabaseCollapse(!databaseCollapse)}
           ></i>
       </div>

@@ -10,7 +10,7 @@ export const Context = ({children}) => {
 
     const [databaseCollapse,setDatabaseCollapse] = useState(false);
     const [emailCollapse,setEmailCollapse] = useState(false);
-    const [smsCollapse,setSmsCollapse] = useState(true);
+    const [smsCollapse,setSmsCollapse] = useState(false);
   
     const values = {connectionClick,setConnectionClick,userClick,setuserClick,securityClick,setSecurityClick,databaseCollapse,setDatabaseCollapse,emailCollapse,setEmailCollapse,smsCollapse,setSmsCollapse};
 
