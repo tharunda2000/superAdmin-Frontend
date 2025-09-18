@@ -6,9 +6,17 @@ import Body from '../Components/Body'
 const HomePage = () => {
   return (
     <div className='inter'>
+
+      <div className='flex w-full'>
         <SideMenue/>
-        <Header/>
-        <Body/>
+
+        <div className='flex flex-col w-full'>
+          <Header/>
+          <Body/>
+        </div>
+
+      </div>
+        
     </div>
   )
 }

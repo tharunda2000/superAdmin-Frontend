@@ -8,8 +8,10 @@ const Body = () => {
   return (
     
 
-    <div className='fixed bg-blue-100 w-full h-full lg:top-40 lg:left-70 top-20 left-40'>
-      
+    <div className='relative bg-blue-100 min-w-full h-full noto'>
+      <div className='flex relative bg-white mt-20 mx-30 '>
+          <h1>Database Settings</h1>
+      </div>
     </div>
   )
 }
