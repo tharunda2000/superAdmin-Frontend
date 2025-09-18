@@ -7,7 +7,8 @@ export const Context = ({children}) => {
     const [connectionClick,setConnectionClick] = useState(true);
     const [userClick,setuserClick] = useState(false);
     const [securityClick,setSecurityClick] = useState(false);
-    const [databaseCollapse,setDatabaseCollapse] = useState(false);
+
+    const [databaseCollapse,setDatabaseCollapse] = useState(true);
   
     const values = {connectionClick,setConnectionClick,userClick,setuserClick,securityClick,setSecurityClick,databaseCollapse,setDatabaseCollapse};
 

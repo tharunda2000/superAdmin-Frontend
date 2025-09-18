@@ -25,7 +25,7 @@ const SideMenue = () => {
     }
 
   return (
-    <div className='relative flex flex-col h-screen w-60 md:w-70 lg:w-90  bg-gray-100 items-center noto'>
+    <div className='relative flex flex-col h-full w-60 md:w-70 lg:w-90  bg-gray-100 items-center noto'>
 
         <div className='flex lg:text-2xl gap-2 lg:gap-5 mt-10 lg:mt-16'>
             <i class="ri-list-settings-fill text-shadow-lg text-shadow-blue-200"></i>
