@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className='inter'>
 
-      <div className='flex w-full'>
+      <div className='flex w-full fixed'>
         <SideMenue/>
 
         <div className='flex flex-col w-full'>
