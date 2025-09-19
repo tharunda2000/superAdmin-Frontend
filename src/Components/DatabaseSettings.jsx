@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useAppContext } from '../Context/Context'
+import { saveDatabase } from '../services/Databaseservices';
 
 const DatabaseSettings = () => {
 
     const {databaseCollapse,setDatabaseCollapse} = useAppContext();
-    const saveDatabase = async () =>{
 
-    }
+    
 
     const [fields,setFields] = useState(
         {
@@ -30,11 +30,15 @@ const DatabaseSettings = () => {
         );
     }
 
-    const save = async () =>{
+    const saveData = async () =>{
         try{
 
+            const res = await saveDatabase(fields);
+            console.log("User created:", res);
+
+
         }catch(error){
-            
+            console.log("error");
         }
     }
 
@@ -126,7 +130,7 @@ const DatabaseSettings = () => {
             <div className='flex gap-5 my-5'>
                 <input 
                     type="button"
-                    onClick={save} 
+                    onClick={saveData} 
                     value="Save" 
                     class="px-6 py-2 w-35 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all cursor-pointer"
                 />
