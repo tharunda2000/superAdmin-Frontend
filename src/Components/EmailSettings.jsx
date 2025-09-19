@@ -70,7 +70,7 @@ const EmailSettings = () => {
                 <h1>Username</h1>
                 <input 
                     type="text" 
-                    placeholder="database username"
+                    placeholder="username"
                     class="lg:w-100w-full max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
             </div>
@@ -78,8 +78,8 @@ const EmailSettings = () => {
             <div className='flex flex-col gap-2'>
                 <h1>Password</h1>
                 <input 
-                    type="text" 
-                    placeholder="database password"
+                    type="password" 
+                    placeholder="password"
                     class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
             </div>

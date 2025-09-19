@@ -30,6 +30,14 @@ const DatabaseSettings = () => {
         );
     }
 
+    const save = async () =>{
+        try{
+
+        }catch(error){
+            
+        }
+    }
+
     const handleHostChange = (e) => {
         setFields({
             ...fields,
@@ -117,7 +125,8 @@ const DatabaseSettings = () => {
 
             <div className='flex gap-5 my-5'>
                 <input 
-                    type="button" 
+                    type="button"
+                    onClick={save} 
                     value="Save" 
                     class="px-6 py-2 w-35 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all cursor-pointer"
                 />
