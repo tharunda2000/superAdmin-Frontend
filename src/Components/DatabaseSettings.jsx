@@ -1,9 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAppContext } from '../Context/Context'
 
 const DatabaseSettings = () => {
 
     const {databaseCollapse,setDatabaseCollapse} = useAppContext();
+    const saveDatabase = async () =>{
+
+    }
+
+    const [fields,setFields] = useState(
+        {
+            host:"",
+            port:"",
+            dbName:"",
+            userName:"",
+            password:""
+        }
+    )
+    
+    const cancel = () =>{
+        setFields(
+            {
+                host:"",
+                port:"",
+                dbName:"",
+                userName:"",
+                password:""
+            }
+        );
+    }
+
+    const handleHostChange = (e) => {
+        setFields({
+            ...fields,
+            host: e.target.value
+        });
+    };
+
+    const handlePortChange = (e) => {
+        setFields({
+            ...fields,
+            port: e.target.value
+        });
+    };
+
+    const handleDbnameChange = (e) => {
+        setFields({
+            ...fields,
+            dbName: e.target.value
+        });
+    };
+
+    const handleUserChange = (e) => {
+        setFields({
+            ...fields,
+            userName: e.target.value
+        });
+    };
+
+    const handleHPassChange = (e) => {
+        setFields({
+            ...fields,
+            password: e.target.value
+        });
+    };
 
   return (
     <div>
@@ -27,6 +87,8 @@ const DatabaseSettings = () => {
                 <input 
                     type="text" 
                     placeholder="localhost"
+                    value={fields.host}
+                    onChange={handleHostChange}
                     class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
             </div>
@@ -34,8 +96,10 @@ const DatabaseSettings = () => {
             <div className='flex flex-col gap-2'>
                 <h1>Port</h1>
                 <input 
+                    value={fields.port}
                     type="text" 
                     placeholder="Port number"
+                    onChange={handlePortChange}
                     class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
             </div>
@@ -43,7 +107,9 @@ const DatabaseSettings = () => {
             <div className='flex flex-col gap-2'>
                 <h1>Database name</h1>
                 <input 
-                    type="text" 
+                    value={fields.dbName}
+                    type="text"
+                    onChange={handleDbnameChange} 
                     placeholder="database name"
                     class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
@@ -57,7 +123,8 @@ const DatabaseSettings = () => {
                 />
                 <input 
                     type="button" 
-                    value="✖ Cancel" 
+                    value="✖ Cancel"
+                    onClick={cancel} 
                     class="px-6 py-2 w-35 bg-gray-200 text-gray-700 font-medium rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all cursor-pointer"
                 />
             </div>
@@ -69,6 +136,8 @@ const DatabaseSettings = () => {
             <div className='flex flex-col gap-2'>
                 <h1>Username</h1>
                 <input 
+                    value={fields.userName}
+                    onChange={handleUserChange}
                     type="text" 
                     placeholder="database username"
                     class="lg:w-100w-full max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
@@ -78,7 +147,9 @@ const DatabaseSettings = () => {
             <div className='flex flex-col gap-2'>
                 <h1>Password</h1>
                 <input 
-                    type="text" 
+                    value={fields.password}
+                    onChange={handleHPassChange}
+                    type="password" 
                     placeholder="database password"
                     class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
