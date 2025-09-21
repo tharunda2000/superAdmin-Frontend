@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { useAppContext } from '../Context/Context'
 import DatabaseSettings from './DatabaseSettings';
 import EmailSettings from './EmailSettings';

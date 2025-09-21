@@ -12,8 +12,8 @@ const DatabaseSettings = () => {
         {
             host:"",
             port:"",
-            dbName:"",
-            userName:"",
+            databaseName:"",
+            username:"",
             password:""
         }
     )
@@ -23,8 +23,8 @@ const DatabaseSettings = () => {
             {
                 host:"",
                 port:"",
-                dbName:"",
-                userName:"",
+                databaseName:"",
+                username:"",
                 password:""
             }
         );
@@ -59,14 +59,14 @@ const DatabaseSettings = () => {
     const handleDbnameChange = (e) => {
         setFields({
             ...fields,
-            dbName: e.target.value
+            databaseName: e.target.value
         });
     };
 
     const handleUserChange = (e) => {
         setFields({
             ...fields,
-            userName: e.target.value
+            username: e.target.value
         });
     };
 
@@ -119,7 +119,7 @@ const DatabaseSettings = () => {
             <div className='flex flex-col gap-2'>
                 <h1>Database name</h1>
                 <input 
-                    value={fields.dbName}
+                    value={fields.databaseName}
                     type="text"
                     onChange={handleDbnameChange} 
                     placeholder="database name"
@@ -149,7 +149,7 @@ const DatabaseSettings = () => {
             <div className='flex flex-col gap-2'>
                 <h1>Username</h1>
                 <input 
-                    value={fields.userName}
+                    value={fields.username}
                     onChange={handleUserChange}
                     type="text" 
                     placeholder="database username"
