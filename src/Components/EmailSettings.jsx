@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const EmailSettings = () => {
 
     const {emailCollapse,setEmailCollapse} = useAppContext();
+    const [visible,setVisible] = useState(false);
     
     const [fields,setFields] = useState(
             {

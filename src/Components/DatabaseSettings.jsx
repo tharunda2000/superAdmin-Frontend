@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const DatabaseSettings = () => {
 
     const {databaseCollapse,setDatabaseCollapse} = useAppContext();
-
+    const [visible,setVisible] = useState(false);
     
 
     const [fields,setFields] = useState(
@@ -206,19 +206,28 @@ const DatabaseSettings = () => {
                     onChange={handleUserChange}
                     type="text" 
                     placeholder="database username"
-                    class="lg:w-100w-full max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
+                    class="lg:w-100 w-full max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
             </div>
 
             <div className='flex flex-col gap-2'>
                 <h1>Password</h1>
+                <div className='flex gap-3 items-center'>
+
                 <input 
                     value={fields.password}
                     onChange={handleHPassChange}
-                    type="password" 
+                    type={visible?"text":"password" }
                     placeholder="database password"
-                    class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
+                    class="lg:w-80 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
+                <i 
+                    class={visible?"ri-eye-fill text-2xl text-blue-500 cursor-pointer":"ri-eye-off-fill text-2xl text-gray-500 cursor-pointer"}
+                    onClick={()=>setVisible(!visible)}
+                ></i>
+                </div>
+                
+                
             </div>
 
         </div>
