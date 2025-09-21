@@ -87,6 +87,7 @@ const DatabaseSettings = () => {
             const res = await saveDatabase(fields);
             console.log("User created:", res);
             success();
+            cancel();
 
         }catch(error){
             console.log("error");
