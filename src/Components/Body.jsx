@@ -11,7 +11,7 @@ const Body = () => {
   return (
     
 
-    <div className="flex flex-col relative bg-blue-100 min-w-full h-screen overflow-y-auto font-noto pb-50 ">
+    <div className="flex flex-col relative bg-blue-100 min-w-full h-screen overflow-y-auto font-noto pb-50 noto ">
       
       {connectionClick && <div>
         <DatabaseSettings />

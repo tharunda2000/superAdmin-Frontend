@@ -130,7 +130,7 @@ const EmailSettings = () => {
 
   return (
     <div>
-      <div className='flex relative bg-white mt-20 mx-10 lg:mx-70 p-5 border-1 border-blue-500 rounded-t-2xl justify-between text-sm lg:text-xl'>
+      <div className='flex relative bg-white mt-10 mx-10 lg:mx-70 p-5 border-1 border-blue-500 rounded-t-2xl justify-between text-sm lg:text-xl'>
           <div className='flex gap-3'>
             <i class="ri-mail-fill"></i>
             <h1 >Email Settings</h1>

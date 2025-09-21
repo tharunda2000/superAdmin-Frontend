@@ -8,7 +8,7 @@ export const Context = ({children}) => {
     const [userClick,setuserClick] = useState(false);
     const [securityClick,setSecurityClick] = useState(false);
 
-    const [databaseCollapse,setDatabaseCollapse] = useState(false);
+    const [databaseCollapse,setDatabaseCollapse] = useState(true);
     const [emailCollapse,setEmailCollapse] = useState(false);
     const [smsCollapse,setSmsCollapse] = useState(false);
   
