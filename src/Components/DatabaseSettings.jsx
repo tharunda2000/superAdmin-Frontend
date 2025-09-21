@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAppContext } from '../Context/Context'
 import { saveDatabase } from '../services/Databaseservices';
+import toast, { Toaster } from 'react-hot-toast';
 
 const DatabaseSettings = () => {
 
@@ -30,15 +31,66 @@ const DatabaseSettings = () => {
         );
     }
 
+    const success = () => toast.success('Settings saved successfully', {
+                          duration: 2000
+                        })
+
+    const notifyFail = () => toast.error('Failed to save settings', {
+                          duration: 2000
+                         })
+
+    const HostBlank = () => toast.error('Host is required', {
+                          duration: 2000
+                         })
+    const portErr = () => toast.error('Port must be a number', {
+                          duration: 2000
+                         })
+    const dataNameBlank = () => toast.error('Database name is required', {
+                          duration: 2000
+                         })
+
+    const userBlank = () => toast.error('Username is required', {
+                          duration: 2000
+                         })
+
+    const passErr = () => toast.error('Password must be at least 8 characters long', {
+                          duration: 2000
+                         })
     const saveData = async () =>{
         try{
 
+             if (!fields.host.trim()) {
+                HostBlank();
+                return;
+            }
+
+            if (!fields.port || isNaN(fields.port)) {
+                portErr();
+                return;
+            }
+
+            if (!fields.databaseName.trim()) {
+                dataNameBlank();
+                return;
+            }
+
+            if (!fields.username.trim()) {
+                userBlank();
+                return;
+            }
+
+            if (!fields.password || fields.password.length < 8) {
+                passErr();
+                return;
+            }
+
             const res = await saveDatabase(fields);
             console.log("User created:", res);
-
+            success();
 
         }catch(error){
             console.log("error");
+            notifyFail();
         }
     }
 
