@@ -3,7 +3,7 @@ import { useAppContext } from '../Context/Context';
 
 const SideMenue = () => {
 
-    const [dropdown,setDropdown] = useState(false);
+    const [dropdown,setDropdown] = useState(true);
     const {connectionClick,setConnectionClick,userClick,setuserClick,securityClick,setSecurityClick}= useAppContext();
 
     const connectionItem = () =>{

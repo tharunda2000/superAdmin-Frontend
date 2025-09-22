@@ -218,7 +218,7 @@ const DatabaseSettings = () => {
                     value={fields.password}
                     onChange={handleHPassChange}
                     type={visible?"text":"password" }
-                    placeholder="database password"
+                    placeholder="atleast 8 charaters"
                     class="lg:w-80 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 />
                 <i 
