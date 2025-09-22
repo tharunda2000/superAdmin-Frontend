@@ -212,7 +212,7 @@ const DatabaseSettings = () => {
 
             <div className='flex flex-col gap-2'>
                 <h1>Password</h1>
-                <div className='flex gap-3 items-center'>
+                <div className='flex gap-4 items-center'>
 
                 <input 
                     value={fields.password}

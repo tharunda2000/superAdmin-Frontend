@@ -25,7 +25,7 @@ const SideMenue = () => {
     }
 
   return (
-    <div className='relative flex flex-col h-full w-60 md:w-70 lg:w-90  bg-gray-100 items-center noto '>
+    <div className='relative flex flex-col h-screen w-60 md:w-70 lg:w-90  bg-gray-100 items-center noto '>
 
         <div className='flex lg:text-2xl gap-2 lg:gap-5 mt-10 lg:mt-16'>
             <i class="ri-list-settings-fill text-shadow-lg text-shadow-blue-200"></i>
@@ -43,7 +43,7 @@ const SideMenue = () => {
         {dropdown && <div className='flex flex-col text-sm'>
 
             <div 
-                className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'
+                className='flex mt-3 mx-5  bg-white p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800 border-1'
                 onClick={connectionItem}
             >
                 <i class="ri-signal-wifi-error-fill text-xl"></i>
@@ -51,7 +51,7 @@ const SideMenue = () => {
             </div>
 
             <div 
-                className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'
+                className='flex mt-3 mx-5  bg-white p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800 border-1'
                 onClick={userItem}
             >
                 <i class="ri-shield-user-fill text-xl"></i>
@@ -59,7 +59,7 @@ const SideMenue = () => {
             </div>
 
             <div 
-                className='flex mt-3 mx-5  bg-gray-300 p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800'
+                className='flex mt-3 mx-5  bg-white p-3 lg:p-6 rounded-lg  lg:gap-3 lg:w-55 cursor-pointer hover:bg-blue-200 hover:text-blue-800 border-1'
                 onClick={securityItem}
             >
                 <i class="ri-shield-fill text-xl"></i>
