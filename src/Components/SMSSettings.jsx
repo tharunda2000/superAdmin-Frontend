@@ -98,7 +98,7 @@ const SMSSettings = () => {
   return (
 
     <div>
-      <div className='flex relative bg-white mt-10 mx-10 lg:mx-70 p-5 border-1 border-blue-500 rounded-t-2xl justify-between text-sm lg:text-xl'>
+      <div className='flex relative bg-white mt-10 mx-10 lg:mx-70 p-5 border-1 border-blue-500 rounded-t-2xl justify-between text-sm lg:text-xl shadow-lg shadow-blue-200'>
           <div className='flex gap-3'>
             <i class="ri-message-2-fill"></i>
             <h1 >SMS Settings</h1>
