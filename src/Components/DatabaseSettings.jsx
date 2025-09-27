@@ -3,18 +3,42 @@ import { useAppContext } from '../Context/Context'
 import { saveDatabase } from '../services/Databaseservices';
 import toast, { Toaster } from 'react-hot-toast';
 import {useForm} from 'react-hook-form'
+import {hostname, z} from 'zod'
+import {zodResolver} from '@hookform/resolvers/zod'
+import {databaseError} from '../Messages/DatabaseMsg'
 
 const DatabaseSettings = () => {
 
     const {databaseCollapse,setDatabaseCollapse} = useAppContext();
     const [visible,setVisible] = useState(false);
 
-    const {register,handleSubmit,formState:{errors,isSubmitting}} = useForm();
+    const schema = z.object(
+        {
+            host: z.string().min(1,"Host is required"),
+            port: z.string().min(1,"Port is required").regex(/^\d+$/,"port must be a number"),
+            databaseName: z.string().min(1, "Database name is required"),
+            username: z.string().min(1, "Username is required"),
+            password: z.string().min(8, "Password must be at least 8 characters").regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])/,"at least 1 lowercase ,uppercase ,special character"),
+         })
+
+    const {register,handleSubmit,formState:{errors,isSubmitting}} = useForm(
+        {
+            resolver:zodResolver(schema)
+        }
+    );  
     
-    const onSubmit = async (data) =>{
-        await new Promise((resolve)=>setTimeout(resolve,3000))
-        console.log(data);      
-    }
+    const onSubmit = async (data) => {
+        try {
+            console.log("Submitting data:", data);
+            const res = await saveDatabase(data);
+            console.log("Response:", res);
+            
+           
+        } catch (error) {
+            console.error("Save failed:", error);
+            databaseError();
+        }
+    };
     
   return (
     <div>
@@ -37,11 +61,7 @@ const DatabaseSettings = () => {
                 <div className='flex flex-col gap-2'>
                     <h1>Host</h1>
                     <input
-                        {...register("host",
-                            {
-                                required:"Host name is required",
-                            }
-                        )} 
+                        {...register("host")} 
                         type="text" 
                         placeholder="localhost"
                         class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
@@ -52,11 +72,7 @@ const DatabaseSettings = () => {
                 <div className='flex flex-col gap-2'>
                     <h1>Port</h1>
                     <input
-                        {...register("port",
-                            {
-                                 required:"Port is required",
-                            }
-                        )} 
+                        {...register("port")} 
                         type="text" 
                         placeholder="Port number"
                         class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
@@ -67,11 +83,12 @@ const DatabaseSettings = () => {
                 <div className='flex flex-col gap-2'>
                     <h1>Database name</h1>
                     <input
-                        {...register("dbName")}
+                        {...register("databaseName")}
                         type="text"
                         placeholder="database name"
                         class="lg:w-100 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                     />
+                    {errors.databaseName&& <div className='text-red-500'>{errors.databaseName.message}</div>}
                 </div>
 
                 <div className='flex gap-5 my-5'>
@@ -100,6 +117,7 @@ const DatabaseSettings = () => {
                         placeholder="database username"
                         class="lg:w-100 w-full max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                     />
+                    {errors.username&& <div className='text-red-500'>{errors.username.message}</div>}
                 </div>
 
                 <div className='flex flex-col gap-2'>
@@ -117,7 +135,7 @@ const DatabaseSettings = () => {
                         onClick={()=>setVisible(!visible)}
                     ></i>
                     </div>
-                    
+                    {errors.password&& <div className='text-red-500'>{errors.password.message}</div>}
                     
                 </div>
 
