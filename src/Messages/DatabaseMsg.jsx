@@ -3,39 +3,71 @@ import toast, { Toaster } from 'react-hot-toast';
 export const databaseError = () =>{
 
     toast.custom((t) => (
-  <div
-    className={`${
-      t.visible ? 'animate-custom-enter' : 'animate-custom-leave'
-    } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-  >
-    <div className="flex-1 w-0 p-4">
-      <div className="flex items-start">
-        <div className="flex-shrink-0 pt-0.5">
-          <img
-            className="h-10 w-10 rounded-full"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=6GHAjsWpt9&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-            alt=""
-          />
+      <div
+        className={`${
+          t.visible ? 'animate-custom-enter' : 'animate-custom-leave'
+        } max-w-md w-full  shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-red-500 bg-red-200 ring-opacity-5`}
+      >
+        <div className="flex-1 w-0 p-4">
+          <div className="flex items-start">
+            <div className="flex-shrink-0 pt-0.5">
+              <i class="ri-close-circle-fill text-red-500 text-4xl"></i>
+            </div>
+            <div className="ml-3 flex-1">
+              <p className="text-md font-medium text-gray-900">
+                Error
+              </p>
+              <p className="mt-1 text-md text-gray-500">
+                Database settings can't be saved !
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="ml-3 flex-1">
-          <p className="text-sm font-medium text-gray-900">
-            Emilia Gates
-          </p>
-          <p className="mt-1 text-sm text-gray-500">
-            Sure! 8:30pm works great!
-          </p>
+        <div className="flex border-l border-gray-200">
+          <button
+            onClick={() => toast.dismiss(t.id)}
+            className="w-full border border-transparent rounded-none rounded-r-lg p-4 cursor-pointer flex items-center justify-center text-sm font-medium text-red-600 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+          >
+            Close
+          </button>
         </div>
       </div>
-    </div>
-    <div className="flex border-l border-gray-200">
-      <button
-        onClick={() => toast.dismiss(t.id)}
-        className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    ),{ duration: Infinity })
+
+}
+
+export const databaseSuccess = () =>{
+
+  toast.custom((t) => (
+      <div
+        className={`${
+          t.visible ? 'animate-custom-enter' : 'animate-custom-leave'
+        } max-w-md w-full  shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-green-500 bg-green-200 ring-opacity-5`}
       >
-        Close
-      </button>
-    </div>
-  </div>
-))
+        <div className="flex-1 w-0 p-4">
+          <div className="flex items-start">
+            <div className="flex-shrink-0 pt-0.5">
+              <i class="ri-close-circle-fill text-green-500 text-4xl"></i>
+            </div>
+            <div className="ml-3 flex-1">
+              <p className="text-md font-medium text-gray-900">
+                Successful
+              </p>
+              <p className="mt-1 text-md text-gray-500">
+                Database settings saved successfully !
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex border-l border-gray-200">
+          <button
+            onClick={() => toast.dismiss(t.id)}
+            className="w-full border border-transparent rounded-none rounded-r-lg p-4 cursor-pointer flex items-center justify-center text-sm font-medium text-green-600 hover:text-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    ),{ duration: Infinity })
 
 }

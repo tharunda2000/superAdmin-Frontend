@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import {useForm} from 'react-hook-form'
 import {hostname, z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod'
-import {databaseError} from '../Messages/DatabaseMsg'
+import {databaseError,databaseSuccess} from '../Messages/DatabaseMsg'
 
 const DatabaseSettings = () => {
 
@@ -32,6 +32,7 @@ const DatabaseSettings = () => {
             console.log("Submitting data:", data);
             const res = await saveDatabase(data);
             console.log("Response:", res);
+            databaseSuccess();
             
            
         } catch (error) {
