@@ -3,7 +3,7 @@ import { useAppContext } from '../Context/Context'
 import { saveDatabase } from '../services/Databaseservices';
 import toast, { Toaster } from 'react-hot-toast';
 import {useForm} from 'react-hook-form'
-import {hostname, z} from 'zod'
+import {z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {databaseError,databaseSuccess} from '../Messages/DatabaseMsg'
 
@@ -19,7 +19,8 @@ const DatabaseSettings = () => {
             databaseName: z.string().min(1, "Database name is required"),
             username: z.string().min(1, "Username is required"),
             password: z.string().min(8, "Password must be at least 8 characters").regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])/,"at least 1 lowercase ,uppercase ,special character"),
-         })
+         }
+    )
 
     const {register,handleSubmit,formState:{errors,isSubmitting}} = useForm(
         {
@@ -27,7 +28,7 @@ const DatabaseSettings = () => {
         }
     );  
     
-    const onSubmit = async (data) => {
+    const onSave = async (data) => {
         try {
             console.log("Submitting data:", data);
             const res = await saveDatabase(data);
@@ -54,7 +55,7 @@ const DatabaseSettings = () => {
           ></i>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSave)}>
         {databaseCollapse && <div className='flex relative bg-white mx-10 lg:mx-70 p-5 gap-20 justify-evenly border-1 border-blue-500'>
 
             <div className='flex flex-col gap-4'>
@@ -128,7 +129,7 @@ const DatabaseSettings = () => {
                     <input
                         {...register("password")}
                         type={visible?"text":"password" }
-                        placeholder="atleast 8 charaters"
+                        placeholder="Enter a password"
                         class="lg:w-80 max-w-sm px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                     />
                     <i 
