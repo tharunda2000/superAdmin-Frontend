@@ -1,6 +1,6 @@
 import toast, { Toaster } from "react-hot-toast";
 
-export const databaseError = () => {
+export const emailError = () => {
   toast.custom(
     (t) => (
       <div
@@ -16,7 +16,7 @@ export const databaseError = () => {
             <div className="ml-3 flex-1">
               <p className="text-md font-medium text-gray-900">Error</p>
               <p className="mt-1 text-md text-gray-500">
-                Database settings can't be saved !
+                Email settings can't be saved !
               </p>
             </div>
           </div>
@@ -35,7 +35,7 @@ export const databaseError = () => {
   );
 };
 
-export const databaseSuccess = () => {
+export const emailSuccess = () => {
   toast.custom(
     (t) => (
       <div
@@ -51,7 +51,7 @@ export const databaseSuccess = () => {
             <div className="ml-3 flex-1">
               <p className="text-md font-medium text-gray-900">Successful</p>
               <p className="mt-1 text-md text-gray-500">
-                Database settings saved successfully !
+                Email settings saved successfully !
               </p>
             </div>
           </div>
